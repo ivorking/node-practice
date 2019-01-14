@@ -3,12 +3,17 @@ const router = express.Router();
 
 // Do work here
 router.get('/', (req, res) => {
-  const ijk = { name: 'ivor', age: 20, cool: true };
-  console.log("it works")
+  const wes = { name: 'ivor', age: 20, cool: true };
+  // console.log("it works")
   // res.send('Hey! It works!!');
-  // res.json(ijk);
+  // res.json(wes);
   // res.send(req.query.age);
   res.json(req.query);
+});
+
+router.get('/reverse/:name', (req, res) => {
+  const reverse = [...req.params.name].reverse().join('');
+  res.send(reverse);
 });
 
 module.exports = router;

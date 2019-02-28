@@ -1,9 +1,13 @@
 exports.myMiddleware = (req, res, next) => {
-   req.name = 'ik';
+   req.name = 'West';
+   if(req.name === 'West') {
+      throw Error('Stupid');
+   }
    next();
-}
+};
 
 exports.homePage = (req, res) => {
+   console.log(req.name);
    res.render('index');
 };
 

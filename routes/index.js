@@ -4,6 +4,7 @@ const storeController = require('../controllers/storeController');
 // router.get('/', storeController.myMiddleware, storeController.homePage);
 router.get('/', storeController.homePage);
 router.get('/add', storeController.addStore);
+router.post('/add', storeController.createStore)
 
 // router.get('/', (req, res) => {
 //     const wes = { name: 'Wes', age: 100, cool: false };

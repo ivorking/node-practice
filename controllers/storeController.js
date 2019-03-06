@@ -10,7 +10,6 @@ const mongoose = require('mongoose');
 const Store = mongoose.model('Store');
 
 exports.homePage = (req, res) => {
-   console.log(req.name);
    res.render('index');
 };
 
@@ -19,13 +18,7 @@ exports.addStore = (req,res) => {
 };
 
 exports.createStore = async (req, res) => {
-   // try {
-   //    const store = new Store(req.body);
-   //    await store.save();
-   //    console.log('it worked')
-   // }
-   const store = new Store(req.body);
-   await store.save();
-   // console.log('It worked');
-   res.redirect('/');
+   const store = await (new Store(req.body).save());
+   req.flash('success', `Successfully Created ${store.name}. care for review?`);
+   res.redirect(`/store/${store.slug}`);
 };

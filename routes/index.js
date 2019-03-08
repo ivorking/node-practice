@@ -4,7 +4,8 @@ const storeController = require('../controllers/storeController');
 // router.get('/', storeController.myMiddleware, storeController.homePage);
 const { catchErrors } = require('../handlers/errorHandlers');
 
-router.get('/', storeController.homePage);
+router.get('/', storeController.getStores);
+router.get('/stores', storeController.getStores);
 router.get('/add', storeController.addStore);
 router.post('/add', catchErrors(storeController.createStore));
 

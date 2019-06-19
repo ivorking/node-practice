@@ -35,7 +35,7 @@ exports.editStore = async ( req, res ) => {
    res.render('editStore', { title: `Edit ${store.name}`, store: store})
 };
 
-exports.updateStore = async (req.res) => {
+exports.updateStore = async (req, res) => {
    const store = await Store.findOneAndUpdate({ _id: req.params.id }, req.body, 
       {
       new: true, // return new instead of old store

@@ -36,8 +36,8 @@ exports.editStore = async ( req, res ) => {
 };
 
 exports.updateStore = async (req, res) => {
-   const store = await Store.findOneAndUpdate({ _id: req.params.id }, req.body, 
-      {
+   const store = await Store.findOneAndUpdate({ _id: req.params.id }, 
+      req.body, {
       new: true, // return new instead of old store
       runValidators: true
       }).exec();

@@ -11,10 +11,10 @@ const multerOptions = {
     if(isPhoto) {
       next(null, true);
     } else {
-      next({ message: 'That filetype isnt allowed!' }, false);
+      next({ message: 'That filetype isn\'t allowed!' }, false);
     }
   }
-};
+}
 
 exports.homePage = (req, res) => {
   res.render('index');

@@ -30,6 +30,7 @@ exports.resize = async (req, res, next) => {
   // check if there is no new file to resize
   if (!req.file) {
     next(); // skip to the next middleware
+    return;
   }
   const extension = req.file.mimetype.split('/')[1];
   req.body.photo = `${uuid.v4()}.${extension}`;

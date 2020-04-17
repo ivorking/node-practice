@@ -53,7 +53,7 @@ storeSchema.pre('save', async function(next) {
 storeSchema.statics.getTagsList = function() {
   return this.aggregate([
     { $unwind: '$tags' },
-    { $group: }
+    { $group: { _id: '$tags', count: { $sum: 1 } }}
   ]);
 }
 

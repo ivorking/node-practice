@@ -50,4 +50,11 @@ storeSchema.pre('save', async function(next) {
   // TODO make more resiliant so slugs are unique
 });
 
+storeSchema.statics.getTagsList = function() {
+  return this.aggregate([
+    { $unwind: '$tags' },
+    { $group: }
+  ]);
+}
+
 module.exports = mongoose.model('Store', storeSchema);
